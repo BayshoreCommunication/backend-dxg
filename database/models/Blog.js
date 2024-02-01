@@ -1,70 +1,68 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
-const blogSchema = new Schema({  
-   
+const blogSchema = new Schema(
+  {
     title: {
-        type: String,   
+      type: String,
     },
     body: {
-        type: String,
+      type: String,
     },
     metaDescription: {
-        type: String,
+      type: String,
     },
     author: {
-        type: String,
+      type: String,
     },
-    category: { type: Array, "default": [] },
-    bodyImage:[
-                    {
-                                imageTitle: {  
-                                type: String,
-                              },
-                                altText: {
-                                    type: String,
-                                },
-                                image:{
-                                    public_id: {
-                                        type: String,
-                                        },
-                                        url: {
-                                        type: String,
-                                        },
-                            }
-                    }
-              ],
-    featuredImage: 
-           {
-                imageTitle: {  
-                    type: String,
-                },
-                altText: {
-                    type: String,
-                },
-                 image:{
-                    public_id: {
-                        type: String,
-                        },
-                    url: {
-                        type: String,
-                        },
-                }
+    category: { type: Array, default: [] },
+    bodyImage: [
+      {
+        imageTitle: {
+          type: String,
+        },
+        altText: {
+          type: String,
+        },
+        image: {
+          public_id: {
+            type: String,
           },
-   
+          url: {
+            type: String,
+          },
+        },
+      },
+    ],
+    featuredImage: {
+      imageTitle: {
+        type: String,
+      },
+      altText: {
+        type: String,
+      },
+      image: {
+        public_id: {
+          type: String,
+        },
+        url: {
+          type: String,
+        },
+      },
+    },
+
     published: { type: Boolean, default: false },
     slug: {
-        type: String,
+      type: String,
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-  
-        ref: "User",
-      },
+      type: mongoose.Schema.Types.ObjectId,
 
-}, { timestamps: true })
+      ref: "User",
+    },
+  },
+  { timestamps: true }
+);
 
-
-
-const Blog = mongoose.model('Blog', blogSchema);
-export default Blog
+const Blog = mongoose.model("Blog", blogSchema);
+export default Blog;
